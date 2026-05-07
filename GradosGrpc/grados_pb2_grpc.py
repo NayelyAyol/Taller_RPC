@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import GradosGrpc.grados_pb2 as grados__pb2
+import grados_pb2 as grados__pb2
 
 GRPC_GENERATED_VERSION = '1.80.0'
 GRPC_VERSION = grpc.__version__

@@ -1,5 +1,5 @@
-import CalculadoraGrpc.calculadora_pb2 as calculadora_pb2
-import CalculadoraGrpc.calculadora_pb2_grpc as calculadora_pb2_grpc
+import calculadora_pb2
+import calculadora_pb2_grpc
 import grpc
 from concurrent import futures
 
@@ -25,7 +25,7 @@ class CalculadoraServidor(
         return calculadora_pb2.Resultado(
             r=resultado
         )
-    
+
     def Dividir(self,request, context):
         resultado = request.a // request.b
         return calculadora_pb2.Resultado(

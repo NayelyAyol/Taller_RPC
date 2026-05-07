@@ -1,19 +1,26 @@
 import grpc
-import CalculadoraGrpc.calculadora_pb2 as calculadora_pb2
-import CalculadoraGrpc.calculadora_pb2_grpc as calculadora_pb2_grpc
+import calculadora_pb2
+import calculadora_pb2_grpc
 
-#stub cliente automatico que llamara a las funciones remotas 
+# Conectar al servidor gRPC
+canal = grpc.insecure_channel('localhost:5000')
+stub = calculadora_pb2_grpc.CalculadoraStub(canal)
 
-cliente = grpc.insecure_channel(
-    'localhost:5000'
-)
+print("Ingrese la operación que desea realizar:\n- sumar\n- restar\n- multiplicar\n- dividir")
+operacion = input("Operación: ").strip().lower()
 
-stub = calculadora_pb2_grpc.CalculadoraStub(
-    cliente
-)
+a = int(input("Primer número: "))
+b = int(input("Segundo número: "))
 
-r1 = stub.Sumar(
-    calculadora_pb2.Operacion(a=10, b=5)
-)
+funciones = {
+    "sumar": stub.Sumar,
+    "restar": stub.Restar,
+    "multiplicar": stub.Multipicar,  
+    "dividir": stub.Dividir
+}
 
-print("La suma es: ", r1)
+if operacion in funciones:
+    resultado = funciones[operacion](calculadora_pb2.Operacion(a=a, b=b))
+    print("Resultado:", resultado.r)
+else:
+    print("Operación no válida")

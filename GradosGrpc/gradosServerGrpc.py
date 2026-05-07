@@ -1,5 +1,5 @@
-import GradosGrpc.grados_pb2 as grados_pb2
-import GradosGrpc.grados_pb2_grpc as grados_pb2_grpc
+import grados_pb2
+import grados_pb2_grpc
 import grpc
 from concurrent import futures
 

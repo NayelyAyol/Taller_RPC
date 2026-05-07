@@ -3,15 +3,11 @@ import xmlrpc.client
 #Establecer comunicacion con el servidor
 cliente = xmlrpc.client.ServerProxy("http://localhost:9000/")
 
-#Invocación de las funciones 
-suma = cliente.sumar(2,2)
-print("Suma: ", suma)
+print("Ingrese la operación que desea realizar \n- sumar\n- restar\n- multiplicar\n- dividir")
+opcion = input("Ingrese la operacion en letras, tal cual se muestra en el enunciado: ").strip()
 
-resta = cliente.restar(2,2)
-print("Resta: ", resta)
+a=float(input("Primer número: "))
+b=float(input ("Segundo número: "))
 
-multiplicacion = cliente.multiplicar(2,2)
-print("Multiplicacion: ", multiplicacion)
-
-division = cliente.dividir(2,2)
-print("División: ", division)
+resultado = getattr(cliente, opcion)(a, b)
+print("Resultado:", resultado)
