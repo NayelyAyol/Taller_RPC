@@ -3,8 +3,6 @@
 ## Descripción
 - Este taller consiste en la implementación de una calculadora y un conversor de grados usando RPC en Python mediante XML-RPC y gRPC.
 
-- El sistema permite realizar operaciones matemáticas desde un cliente conectado a un servidor.
-
 ## Autor
 
 Nayely Ayol
