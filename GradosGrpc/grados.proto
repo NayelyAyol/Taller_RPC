@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service Calculadora{
+    rpc CF (Operacion) returns (Resultado);
+    rpc FC (Operacion) returns (Resultado);
+}
+
+message Operacion {
+    double a = 1;
+}
+
+message Resultado {
+    double r = 1;
+}
